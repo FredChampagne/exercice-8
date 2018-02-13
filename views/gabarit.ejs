@@ -7,12 +7,21 @@
 </head>
 <body>
  <table class="tableau">
+ <% let noLigne = 0 %>
  <% for (element of adresses) {%>
+ <% if (noLigne == 0){ %>
  <tr>
-     <% for(p in element) { %>
-        <td><%= element[p] %></td>
+     <% noLigne++
+     for(p in element) { %>
+        <th><%= p %></th>
     <% } %>
  </tr>
+ <% } %>
+ <tr>
+    for(p in element) { %>
+        <td><%= element[p] %></td>
+    <% } %>
+</tr>
  <% } %>
  </table>
 </body>

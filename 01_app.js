@@ -1,32 +1,20 @@
 const express = require('express');
-let app = express();
+const app = express();
 app.use(express.static('public'));
+const MongoClient = require('mongodb').MongoClient
 
 /* on associe le moteur de vue au module «ejs» */
 
 app.set('view engine', 'ejs'); // générateur de template
 
 app.get('/', function (req, res) {
-	let resultat = 
-	[
-		{
-			id : 1,
-			nom : "Eddy Martin",
-			telephone : "514-234-1212"
-		},
-		{
-			id : 1,
-			nom : "Eddy Martin",
-			telephone : "514-234-1212"
-		},
-		{
-			id : 1,
-			nom : "Eddy Martin",
-			telephone : "514-234-1212"
-		}
-	]
-
-	res.render("gabarit.ejs", {adresses:resultat})
+		var cursor = db.collection('adresse')
+					   .find().toArray(function(err, resultat){
+		if (err) return console.log(err)
+		// transfert du contenu vers la vue index.ejs (renders)
+		// affiche le contenu de la BD
+		res.render('gabarit.ejs', {adresses: resultat})
+		}) 
 })
 
 let server = app.listen(8081, function () {
