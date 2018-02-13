@@ -1,5 +1,5 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 app.use(express.static('public'));
 
 /* on associe le moteur de vue au module «ejs» */
@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 		}
 	]
 
-	res.render("gabarit1.ejs", {adresses:resultat})
+	res.render("gabarit.ejs", {adresses:resultat})
 })
 
 var server = app.listen(8081, function () {
