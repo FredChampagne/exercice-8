@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+let app = express();
 app.use(express.static('public'));
 
 /* on associe le moteur de vue au module «ejs» */
@@ -29,9 +29,9 @@ app.get('/', function (req, res) {
 	res.render("gabarit.ejs", {adresses:resultat})
 })
 
-var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().port
+let server = app.listen(8081, function () {
+   let host = server.address().address
+   let port = server.address().port
    
    console.log("Example app listening at http://%s:%s", host, port)
 })
