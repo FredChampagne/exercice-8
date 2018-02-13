@@ -17,8 +17,17 @@ app.get('/', function (req, res) {
 		}) 
 })
 
-let db // variable qui contiendra le lien sur la BD
+// Traite le formulaire
+app.get('/ajouter', function (req, res) {
+	db.collection('adresse').save(req.body, (err, result) => {
+		if (err) return console.log(err)
+			console.log('sauvegarder dans la BD')
+		res.redirect('/')
+		})
+});
 
+let db // variable qui contiendra le lien sur la BD
+// Connection à la base de donnée
 MongoClient.connect('mongodb://127.0.0.1:27017', (err, database) => {
  if (err) return console.log(err)
  db = database.db('carnet_adresse')
