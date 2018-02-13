@@ -6,6 +6,7 @@
  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+<!-- Le tableau contenant les infos des personnes -->
  <table class="tableau">
  <% let noLigne = 0 %>
  <% for (element of adresses) {%>
@@ -24,7 +25,7 @@
 </tr>
  <% } %>
  </table>
-
+<!-- Le formulaire d'ajout -->
  <form action="/ajouter" method="POST">
     <input type="text" placeholder="nom" name="nom">
     <input type="text" placeholder="telephone" name="telephone">
