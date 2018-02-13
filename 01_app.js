@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 })
 
 // Traite le formulaire
-app.get('/ajouter', function (req, res) {
+app.post('/ajouter', function (req, res) {
 	db.collection('adresse').save(req.body, (err, result) => {
 		if (err) return console.log(err)
 			console.log('sauvegarder dans la BD')
