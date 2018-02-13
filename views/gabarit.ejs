@@ -7,11 +7,11 @@
 </head>
 <body>
  <table class="tableau">
- <% for (elm of adresses) {%>
+ <% for (element of adresses) {%>
  <tr>
- <td><%= elm.id %></td>
- <td><%= elm.nom %></td>
- <td><%= elm.telephone %></td>
+     <% for(p in element) { %>
+        <td><%= element[p] %></td>
+    <% } %>
  </tr>
  <% } %>
  </table>
