@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
+const bodyParser= require('body-parser');
+const ObjectID = require('mongodb').ObjectID;
 /* on associe le moteur de vue au module «ejs» */
-app.set('view engine', 'ejs'); // générateur de template
+app.set('view engine', 'ejs'); // générateur de template 
+app.use(bodyParser.urlencoded({extended: true}))
 var util = require("util");
 
 app.get('/', function (req, res) {
