@@ -39,10 +39,3 @@ MongoClient.connect('mongodb://127.0.0.1:27017', (err, database) => {
  console.log('connexion à la BD et on écoute sur le port 8081')
  })
 })
-/*
-let server = app.listen(8081, function () {
-   let host = server.address().address
-   let port = server.address().port
-   
-   console.log("Example app listening at http://%s:%s", host, port)
-})*/
