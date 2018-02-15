@@ -20,7 +20,7 @@ app.get('/list', function (req, res) {
 	let cursor = db.collection('adresse')
 	.find().toArray(function (err, resultat) {
 		if (err) return console.log(err)
-		console.log('util = ' + util.inspect(resultat));
+		// console.log('util = ' + util.inspect(resultat));
 		// transfert du contenu vers la vue index.ejs (renders)
 		// affiche le contenu de la BD
 		res.render('adresses.ejs', { adresses: resultat })
@@ -46,10 +46,9 @@ app.get('/detruire/:id', (req, res) => {
 	// var critere = ObjectID.createFromHexString(id)
 	var critere = ObjectID(id);
 	console.log(critere);
-	db.collection('adresse').findOneAndDelete({"id": critere}, (err, resultat) => {
-
-	if (err) return console.log(err)
-	res.redirect('/list');
+	db.collection('adresse').findOneAndDelete({"_id": critere}, (err, resultat) => {
+		if (err) return console.log(err)
+		res.redirect('/list');
 	})
 })
 
