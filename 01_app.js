@@ -38,13 +38,19 @@ app.post('/modifier', function (req, res) {
 
 // Supprime une adresse
 app.get('/detruire/:id', (req, res) => {
-	db.collection('adresse').findOneAndDelete( {'id': req.params._id} ,(err, resultat) => {
-		if (err) return res.send(500, err)
-		var cursor = db.collection('adresse').find().toArray(function(err, resultat){
-			if (err) return console.log(err)
-			res.render('gabarit.ejs', {adresse: resultat})
-		})
-	}) 
+	console.log('destruction');
+	var id = req.params.id;
+	console.log(id);
+	// var critere = 'ObjectId("58bae3feaf5a674b240cfe53")'
+	// 58bae3feaf5a674b240cfe53
+	// var critere = ObjectID.createFromHexString(id)
+	var critere = ObjectID(id);
+	console.log(critere);
+	db.collection('adresse').findOneAndDelete({"id": critere}, (err, resultat) => {
+
+	if (err) return console.log(err)
+	res.redirect('/list');
+	})
 })
 
 
