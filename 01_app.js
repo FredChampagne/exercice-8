@@ -36,6 +36,16 @@ app.post('/modifier', function (req, res) {
 	})
 });
 
+// Supprime une adresse
+app.get('/detruire/:id', (req, res) => {
+	db.collection('adresse').findOneAndDelete( {'id': req.params._id} ,(err, resultat) => {
+		if (err) return res.send(500, err)
+		var cursor = db.collection('adresse').find().toArray(function(err, resultat){
+			if (err) return console.log(err)
+			res.render('gabarit.ejs', {adresse: resultat})
+		})
+	}) 
+})
 
 
 let db // variable qui contiendra le lien sur la BD
