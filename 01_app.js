@@ -50,7 +50,16 @@ app.get('/detruire/:id', (req, res) => {
 		if (err) return console.log(err)
 		res.redirect('/list');
 	})
-})
+});
+
+// Tri les adresses
+app.get('/trier/:cle/:ordre', (req, res) => {
+	let cle = req.params.cle
+	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
+	ordre = ______________________________
+	res.render('adresses.ejs', {adresses: resultat, ______, _________ })
+});
 
 
 let db // variable qui contiendra le lien sur la BD
