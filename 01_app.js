@@ -29,7 +29,29 @@ app.get('/list', function (req, res) {
 
 // Traite le formulaire
 app.post('/modifier', function (req, res) {
-	db.collection('adresse').save(req.body, (err, result) => {
+	console.log('req.body' + req.body)
+	/*if (req.body['_id'] != __________){ 
+		console.log('sauvegarde') 
+		var oModif = {
+			"_id": ObjectID(req.body['_id']), 
+			nom: req.body._____,
+			prenom:req.body.______, 
+			telephone:req.body._______
+		}
+		var util = require("util");
+		console.log('util = ' + util.inspect(oModif));
+	}
+	else {*/
+		console.log('insert')
+		console.log(req.body)
+		var oModif = {
+			nom: req.body.nom,
+			prenom:req.body.prenom, 
+			telephone:req.body.telephone,
+			courriel:req.body.courriel
+		}
+	/*}*/
+	db.collection('adresse').save(oModif, (err, result) => {
 		if (err) return console.log(err)
 		console.log('sauvegarder dans la BD')
 		res.redirect('/list')
@@ -38,14 +60,11 @@ app.post('/modifier', function (req, res) {
 
 // Supprime une adresse
 app.get('/detruire/:id', (req, res) => {
-	console.log('destruction');
 	var id = req.params.id;
-	console.log(id);
-	// var critere = 'ObjectId("58bae3feaf5a674b240cfe53")'
-	// 58bae3feaf5a674b240cfe53
+	//console.log(id);
 	// var critere = ObjectID.createFromHexString(id)
 	var critere = ObjectID(id);
-	console.log(critere);
+	//console.log(critere);
 	db.collection('adresse').findOneAndDelete({"_id": critere}, (err, resultat) => {
 		if (err) return console.log(err)
 		res.redirect('/list');
