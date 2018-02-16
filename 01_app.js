@@ -71,16 +71,18 @@ app.get('/detruire/:id', (req, res) => {
 		res.redirect('/list');
 	})
 });
-/*
+
 // Tri les adresses
 app.get('/trier/:cle/:ordre', (req, res) => {
 	let cle = req.params.cle
 	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+	console.log(ordre);
 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
-	ordre = ______________________________
-	res.render('adresses.ejs', {adresses: resultat, ______, _________ })
+	//ordre = 'desc'
+	res.render('adresses.ejs', {adresses: resultat/*, _____, _____*/ })
+	});
 });
-*/
+
 
 let db // variable qui contiendra le lien sur la BD
 // Connection à la BD
