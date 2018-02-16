@@ -30,7 +30,7 @@ app.get('/list', function (req, res) {
 // Traite le formulaire
 app.post('/modifier', function (req, res) {
 	console.log('req.body' + req.body);
-	if (req.body['_id'] != ''){ 
+	if (req.body['_id'] != ""){ 
 		console.log('sauvegarde') 
 		var oModif = {
 			"_id": ObjectID(req.body['_id']), 
@@ -71,7 +71,7 @@ app.get('/detruire/:id', (req, res) => {
 		res.redirect('/list');
 	})
 });
-
+/*
 // Tri les adresses
 app.get('/trier/:cle/:ordre', (req, res) => {
 	let cle = req.params.cle
@@ -80,7 +80,7 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 	ordre = ______________________________
 	res.render('adresses.ejs', {adresses: resultat, ______, _________ })
 });
-
+*/
 
 let db // variable qui contiendra le lien sur la BD
 // Connection à la BD
