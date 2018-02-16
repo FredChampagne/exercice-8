@@ -30,7 +30,7 @@ app.get('/list', function (req, res) {
 // Traite le formulaire
 app.post('/modifier', function (req, res) {
 	console.log('req.body' + req.body);
-	if (req.body['_id'] != null){ 
+	if (req.body['_id'] != ''){ 
 		console.log('sauvegarde') 
 		var oModif = {
 			"_id": ObjectID(req.body['_id']), 
@@ -73,13 +73,13 @@ app.get('/detruire/:id', (req, res) => {
 });
 
 // Tri les adresses
-/*app.get('/trier/:cle/:ordre', (req, res) => {
+app.get('/trier/:cle/:ordre', (req, res) => {
 	let cle = req.params.cle
 	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
 	ordre = ______________________________
 	res.render('adresses.ejs', {adresses: resultat, ______, _________ })
-});*/
+});
 
 
 let db // variable qui contiendra le lien sur la BD
