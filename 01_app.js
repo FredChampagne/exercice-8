@@ -59,6 +59,15 @@ app.post('/modifier', function (req, res) {
 	})
 });
 
+// Ajoute un membre vide
+app.get('/ajouter/', (req, res) => {
+	db.collection('adresse').save(req.body, (err, result) => {
+		if (err) return console.log(err)
+		console.log('ajout vide dans la BD')
+		res.redirect('/list')
+	})
+});
+
 // Supprime une adresse
 app.get('/detruire/:id', (req, res) => {
 	var id = req.params.id;
