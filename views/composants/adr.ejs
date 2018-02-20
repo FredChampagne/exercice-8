@@ -1,10 +1,18 @@
+<!-- Permet de récupérer l'ordre -->
+<% let tri;
+if(typeof ordre != 'undefined'){ 
+      tri = ordre 
+    }else{
+      tri = 'asc';
+    }
+%> 
 <table class="tableau">
     <tr>
-        <th><a href='/trier/id/<%= ordre %>'>ID</a></th>
-        <th><a href='/trier/nom/<%= ordre %>'>Nom</a></th> 
-        <th><a href='/trier/prenom/<%= ordre %>'>Prenom</a></th>
-        <th><a href='/trier/telephone/<%= ordre %>'>Telephone</a></th>
-        <th><a href='/trier/courriel/<%= ordre %>'>Courriel</a></th>
+        <th><a href='/trier/id/<%= tri %>'>ID</a></th>
+        <th><a href='/trier/nom/<%= tri %>'>Nom</a></th> 
+        <th><a href='/trier/prenom/<%= tri %>'>Prenom</a></th>
+        <th><a href='/trier/telephone/<%= tri %>'>Telephone</a></th>
+        <th><a href='/trier/courriel/<%= tri %>'>Courriel</a></th>
         <th>Ajouter</th> 
     </tr>
     <% adresses.forEach(elm => {%>
