@@ -78,8 +78,8 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
 	console.log(ordre);
 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
-	//ordre = 'desc'
-	res.render('adresses.ejs', {adresses: resultat/*, _____, _____*/ })
+	ordre = (ordre == 1 ? "desc" : "asc");
+	res.render('adresses.ejs', {adresses: resultat, ordre:ordre, cle:cle})
 	});
 });
 
