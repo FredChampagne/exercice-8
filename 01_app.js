@@ -1,10 +1,12 @@
 // Éléments qui permettent le fonctionnement de l'application
+"use strict";
 const express = require('express');
 const app = express();
 app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
+
 // Associe le moteur de vue au module «ejs» 
 app.set('view engine', 'ejs'); // Générateur de template 
 app.use(bodyParser.urlencoded({ extended: true }));
