@@ -1,11 +1,9 @@
 "use strict"
 const tableau = require('./tableaux.js');
 let listeMembres = []
-console.log('max : ' + max);
 // Peuple une liste de membres aléatoirement.
 const peupler_json = () => {
     let position;
-    let nbAleatoire;
 	for(let i=0 ; i<15; i++) {
         let unMembre = {};
         unMembre.nom = tableau.tabNom[Math.floor(Math.random()*tableau.tabNom.length)];
