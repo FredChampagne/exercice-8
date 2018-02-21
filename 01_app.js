@@ -97,7 +97,12 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 
 // Peupler la base de données de membres
 app.get('/peupler', function (req, res) {
-	console.log(peupler());
+	let peupler = require('./mes_modules/peupler/');
+    let listeMembres = peupler();
+    db.collection('adresse').insert(listeMembres, (err, resultat) => {
+        if (err) return console.log(err)
+        res.redirect('/list');
+    });
 })
 
 // Vide la base de données
