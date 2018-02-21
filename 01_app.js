@@ -103,11 +103,8 @@ app.get('/peupler', function (req, res) {
 // Vide la base de données
 app.get('/vider', (req, res) => {
     db.collection('adresse').drop((err, resultat) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            res.redirect('/list');
-        }
+        if (err) return console.log(err)
+        res.redirect('/list');
     });
 })
 
