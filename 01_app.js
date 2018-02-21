@@ -6,6 +6,7 @@ app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
+const peupler = require("./mes_modules/peupler");
 
 // Associe le moteur de vue au module «ejs» 
 app.set('view engine', 'ejs'); // Générateur de template 
