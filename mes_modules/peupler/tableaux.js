@@ -12,7 +12,8 @@ let tableau = {
         "Déry",
         "Labalé",
         "Teriot",
-        "Précalia"
+        "Précalia",
+        "Wiston"
     ],
     tabPrenom : [
         "Frédéric",
@@ -24,7 +25,8 @@ let tableau = {
         "Jessica",
         "Rebecca",
         "Natalie",
-        "Natasha"
+        "Natasha",
+        "Benoit"
     ],
     tabIndicatif : [
         "514",
