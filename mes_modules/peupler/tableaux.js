@@ -1,4 +1,6 @@
 "use strict";
+// Tableau contenant des noms, prénoms, indicateurs et domaines
+// afin de générer des membres
 let tableau = {
     tabNom : [
         "Champagne",
