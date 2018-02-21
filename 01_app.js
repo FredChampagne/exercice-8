@@ -97,7 +97,7 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 
 // Peupler la base de données de membres
 app.get('/peupler', function (req, res) {
-	
+	console.log(peupler());
 })
 
 // Vide la base de données
