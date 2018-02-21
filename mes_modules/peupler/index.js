@@ -5,7 +5,7 @@ const peupler_json = () => {
     let listeMembres = []
     let position;
 	for(let i=0 ; i<15; i++) {
-        // Génère un numéro de téléphone complet
+        // Génère un numéro de téléphone complet et réaliste
         let noTel = "-";
         for (let j = 0; j < 7; j++) {
             if(j == 3){
