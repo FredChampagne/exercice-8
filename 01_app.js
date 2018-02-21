@@ -100,7 +100,9 @@ app.get('/peupler', function (req, res) {
 	let peupler = require('./mes_modules/peupler/');
     let listeMembres = peupler();
     db.collection('adresse').insert(listeMembres, (err, resultat) => {
-        if (err) return console.log(err)
+		if (err) return console.log(err)
+		console.log(listeMembres);
+		listeMembres = [];
         res.redirect('/list');
     });
 })

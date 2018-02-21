@@ -1,8 +1,8 @@
 "use strict"
 const tableau = require('./tableaux.js');
-let listeMembres = []
 // Peuple une liste de membres aléatoirement.
 const peupler_json = () => {
+    let listeMembres = []
     let position;
 	for(let i=0 ; i<15; i++) {
         // Génère un numéro de téléphone complet
