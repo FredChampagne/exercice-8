@@ -95,6 +95,21 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 	});
 });
 
+// Peupler la base de données de membres
+app.get('/peupler', function (req, res) {
+	
+})
+
+// Vide la base de données
+app.get('/vider', (req, res) => {
+    db.collection('adresse').drop((err, resultat) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.redirect('/list');
+        }
+    });
+})
 
 let db // variable qui contiendra le lien sur la BD
 // Connection à la BD
