@@ -6,12 +6,48 @@ app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
+const i18n = require("i18n");
+const cookieParser = require('cookie-parser')
 const peupler = require("./mes_modules/peupler");
+
 
 // Associe le moteur de vue au module «ejs» 
 app.set('view engine', 'ejs'); // Générateur de template 
+
+// Utilisation
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(i18n.init);
+app.use(cookieParser());
 let util = require("util");
+
+// Configuration du multilingue
+i18n.configure({ 
+	locales : ['fr', 'en'],
+	cookie : 'langueChoisie', 
+	directory : __dirname + '/locales' 
+})
+/*
+// Accède à la langue anglaise
+app.get('/en', (req, res) => {
+	// 'en' est enregistré comme langue
+	res.setLocale('en');
+	// on en profite pour sauver la langue dans un cookie
+	res.cookie('moncookie', 'en');
+	// retourne le catalogue
+	console.log('res.getCatalog() = ' + res.getCatalog())
+	// retourne la langue qui a été choisie
+	console.log('res.getLocale() = ' + res.getLocale())
+	var bienvenue = 'bienvenue';
+	console.log('en= ' + res.__('bienvenue'));
+});*/
+
+app.get('/:locale(en|fr)',  (req, res) => {
+	res.cookie('langueChoisie' , req.params.locale)
+	// on récupère le paramètre de l'url pour enregistrer la langue
+	res.setLocale(req.params.locale);
+	let leMotAtraduire = "bienvenue";
+	console.log('res.__(leMotAtraduire) = ' + res.__(leMotAtraduire));
+})
 
 // Affichage de l'accueil (root)
 app.get('/', function (req, res) {
