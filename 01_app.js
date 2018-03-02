@@ -12,8 +12,7 @@ const peupler = require("./mes_modules/peupler");
 // Configuration du multilingue
 i18n.configure({ 
 	locales : ['fr', 'en'],
-	cookie : 'langueChoisie', 
-	defaultLocale: 'en',
+	cookie : 'langueChoisie',
 	directory : __dirname + '/locales' 
 })
 
@@ -29,9 +28,8 @@ let util = require("util");
 
 app.get('/:locale(fr|en)', (req, res) => {
 	let locale = req.params.locale;
-	console.log(locale);
-    res.setLocale(req.params.locale);
-    res.cookie('langueChoisie', req.params.locale);
+    req.setLocale(req.params.locale);
+	res.cookie('langueChoisie', req.params.locale);
     res.redirect(req.headers.referer);
 })
 
@@ -39,7 +37,7 @@ app.get('/:locale(fr|en)', (req, res) => {
 app.get('/', (req, res) => {
 	if (req.cookies.langueChoisie == null) {
 		res.cookie('langueChoisie', 'fr');
-		res.setLocale('fr');
+		req.setLocale('fr');
 	}
 	res.render('accueil.ejs');
 })
