@@ -9,6 +9,14 @@ const i18n = require("i18n");
 const cookieParser = require('cookie-parser')
 const peupler = require("./mes_modules/peupler");
 
+// Configuration du multilingue
+i18n.configure({ 
+	locales : ['fr', 'en'],
+	cookie : 'langueChoisie', 
+	defaultLocale: 'en',
+	directory : __dirname + '/locales' 
+})
+
 // Associe le moteur de vue au module «ejs» 
 app.set('view engine', 'ejs'); // Générateur de template 
 
@@ -19,15 +27,9 @@ app.use(i18n.init);
 app.use(cookieParser());
 let util = require("util");
 
-// Configuration du multilingue
-i18n.configure({ 
-	locales : ['fr', 'en'],
-	cookie : 'langueChoisie', 
-	defaultLocale: 'en',
-	directory : __dirname + '/locales' 
-})
-
 app.get('/:locale(fr|en)', (req, res) => {
+	let locale = req.params.locale;
+	console.log(locale);
     res.setLocale(req.params.locale);
     res.cookie('langueChoisie', req.params.locale);
     res.redirect(req.headers.referer);
