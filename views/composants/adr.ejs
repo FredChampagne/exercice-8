@@ -9,11 +9,11 @@ if(typeof ordre != 'undefined'){
 <table class="tableau">
     <tr>
         <th><a href='/trier/id/<%= tri %>'>ID</a></th>
-        <th><a href='/trier/nom/<%= tri %>'>Nom</a></th> 
-        <th><a href='/trier/prenom/<%= tri %>'>Prenom</a></th>
-        <th><a href='/trier/telephone/<%= tri %>'>Telephone</a></th>
-        <th><a href='/trier/courriel/<%= tri %>'>Courriel</a></th>
-        <th><a href='/ajouter/'>Ajouter</a></th> 
+        <th><a href='/trier/nom/<%= tri %>'><% __('tabEnteteNom') %></a></th> 
+        <th><a href='/trier/prenom/<%= tri %>'><% __('tabEntetePrenom') %></a></th>
+        <th><a href='/trier/telephone/<%= tri %>'><% __('tabEnteteTelephone') %></a></th>
+        <th><a href='/trier/courriel/<%= tri %>'><% __('tabEnteteCourriel') %></a></th>
+        <th><a href='/ajouter/'><% __('tabEnteteAjouter') %></a></th> 
     </tr>
     <% adresses.forEach(elm => {%>
         <tr>
@@ -22,8 +22,8 @@ if(typeof ordre != 'undefined'){
             <td contenteditable='true'><%= elm.prenom %></td>
             <td contenteditable='true'><%= elm.telephone %></td>
             <td contenteditable='true'><%= elm.courriel %></td>
-            <td><a href="/detruire/<%= elm._id %>">Detruire</a></td>
-            <td><a class='sauver' href="#">Sauver</a></td>
+            <td><a href="/detruire/<%= elm._id %>"><% __('optionDetruire') %></a></td>
+            <td><a class='sauver' href="#"><% __('optionSauver') %></a></td>
         </tr>
     <% }) %>
 </table>

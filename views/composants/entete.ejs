@@ -1,17 +1,17 @@
 <header class='entete'>
     <nav> 
-        <a href='/vider'><i class="fa fa-industry" aria-hidden="true"></i>Vider</a>
-        <a href='/'><i class="fa fa fa-users" aria-hidden="true"></i>Accueil</a>
-        <a href='/list'><i class="fa fa-graduation-cap" aria-hidden="true"></i>Adresse</a>
-        <a href='/peupler'><i class="fa fa-keyboard-o" aria-hidden="true"></i>Peupler</a>
+        <a href='/vider'><i class="fa fa-industry" aria-hidden="true"></i><% __('navVider') %></a>
+        <a href='/'><i class="fa fa fa-users" aria-hidden="true"></i><% __('navAccueil') %></a>
+        <a href='/list'><i class="fa fa-graduation-cap" aria-hidden="true"></i><% __('navAdresses') %></a>
+        <a href='/peupler'><i class="fa fa-keyboard-o" aria-hidden="true"></i><% __('navPeupler') %></a>
         <% if(getLocale()=='fr') { %>
-        <a href='/en'>English</a>
+            <a href='/en'>English</a>
         <% } if (getLocale()=='en') {%>
-        <a href='/fr'>Français</a>
+            <a href='/fr'>Français</a>
         <% } %>
     </nav> 
     <section>
         <i class="fa fa-cubes fa-5x"></i>
-        <h1><% __("titreSite") %></h1> 
+        <h1><% __('titreSite') %></h1> 
     </section>
 </header>

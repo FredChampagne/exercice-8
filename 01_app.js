@@ -27,8 +27,8 @@ i18n.configure({
 	directory : __dirname + '/locales' 
 })
 
-app.get('/:locale(en|fr)',  (req, res) => {
-	res.setLocale(req.params.locale);
+app.get('/:locale(fr|en)', (req, res) => {
+    res.setLocale(req.params.locale);
     res.cookie('langueChoisie', req.params.locale);
     res.redirect(req.headers.referer);
 })
