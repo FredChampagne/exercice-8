@@ -4,6 +4,11 @@
         <a href='/'><i class="fa fa fa-users" aria-hidden="true"></i>Accueil</a>
         <a href='/list'><i class="fa fa-graduation-cap" aria-hidden="true"></i>Adresse</a>
         <a href='/peupler'><i class="fa fa-keyboard-o" aria-hidden="true"></i>Peupler</a>
+        <% if(getLocale()=="fr") { %>
+        <a href='/en'><i class="fa fa-keyboard-o" aria-hidden="true"></i>English</a>
+        <% } if (getLocale()=="en") {%>
+        <a href='/fr'><i class="fa fa-keyboard-o" aria-hidden="true"></i>Français</a>
+        <% } %>
     </nav> 
     <section>
         <i class="fa fa-cubes fa-5x"></i>

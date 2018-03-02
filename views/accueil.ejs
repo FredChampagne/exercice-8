@@ -1,8 +1,13 @@
 <%- include('composants/head') %> 
 <body>
  <%- include('composants/entete') %>
- <h1>Accueil</h1>
- <p>Bienvenue a l'atelier Node.js</p>
+ <% if(getLocale()=="en") { %>
+    <h1>Home</h1>
+    <p>Welcome to exercise 8 of Node.js</p>
+<% } if (getLocale()=="fr") {%>
+    <h1>Accueil</h1>
+    <p>Bienvenue a l'atelier Node.js</p>
+<% } %>   
  <%- include('composants/footer') %>
 </body>
 </html>

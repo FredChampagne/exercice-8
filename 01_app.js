@@ -26,32 +26,20 @@ i18n.configure({
 	cookie : 'langueChoisie', 
 	directory : __dirname + '/locales' 
 })
-/*
-// Accède à la langue anglaise
-app.get('/en', (req, res) => {
-	// 'en' est enregistré comme langue
-	res.setLocale('en');
-	// on en profite pour sauver la langue dans un cookie
-	res.cookie('moncookie', 'en');
-	// retourne le catalogue
-	console.log('res.getCatalog() = ' + res.getCatalog())
-	// retourne la langue qui a été choisie
-	console.log('res.getLocale() = ' + res.getLocale())
-	var bienvenue = 'bienvenue';
-	console.log('en= ' + res.__('bienvenue'));
-});*/
 
 app.get('/:locale(en|fr)',  (req, res) => {
-	res.cookie('langueChoisie' , req.params.locale)
-	// on récupère le paramètre de l'url pour enregistrer la langue
 	res.setLocale(req.params.locale);
-	let leMotAtraduire = "bienvenue";
-	console.log('res.__(leMotAtraduire) = ' + res.__(leMotAtraduire));
+    res.cookie('langueChoisie', req.params.locale);
+    res.redirect(req.headers.referer);
 })
 
 // Affichage de l'accueil (root)
 app.get('/', function (req, res) {
-	res.render('accueil.ejs');
+	if (err) return console.log(err);
+	if (req.cookies.langueChoisie == null) {
+		res.cookie('langueChoisie', 'fr ');
+		res.setLocale('fr');
+	}
 })
 
 // Affichage de la liste
