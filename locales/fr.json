@@ -1,4 +1,14 @@
 {
-    "bienvenue" : "Bienvenue",
-    "atelier" : "Bienvenue à l'atelier Node.js"
+	"titreSite": "Node.js - Express - mongoDB et EJS",
+	"navAccueil": "Accueil",
+	"navVider": "Vider",
+	"navPeupler": "Peupler",
+	"navAdresses": "Adresses",
+	"tabEnteteNom": "Nom",
+	"tabEntetePrenom": "Prénom",
+	"tabEnteteTelephone": "Téléphone",
+    "tabEnteteCourriel": "Courriel",
+    "tabEnteteAjouter": "Ajouter",
+    "optionSauver": "Sauver",
+    "optionDetruire": "Détruire"
 }

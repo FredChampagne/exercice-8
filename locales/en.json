@@ -1,4 +1,14 @@
 {
-	"bienvenue": "Welcome",
-	"atelier" : "Welcome to exercise 8 of Node.js"
+	"titreSite": "Node.js - Express - mongoDB and EJS",
+	"navAccueil": "Home",
+	"navVider": "Drop",
+	"navPeupler": "Populate",
+	"navAdresses": "Adress",
+	"tabEnteteNom": "Last Name",
+	"tabEntetePrenom": "First Name",
+	"tabEnteteTelephone": "Phone",
+    "tabEnteteCourriel": "E-mail",
+    "tabEnteteAjouter": "Add",
+    "optionSauver": "Save",
+    "optionDetruire": "Remove"
 }

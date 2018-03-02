@@ -4,14 +4,14 @@
         <a href='/'><i class="fa fa fa-users" aria-hidden="true"></i>Accueil</a>
         <a href='/list'><i class="fa fa-graduation-cap" aria-hidden="true"></i>Adresse</a>
         <a href='/peupler'><i class="fa fa-keyboard-o" aria-hidden="true"></i>Peupler</a>
-        <% if(getLocale()=="fr") { %>
+        <% if(getLocale()=='fr') { %>
         <a href='/en'>English</a>
-        <% } if (getLocale()=="en") {%>
+        <% } if (getLocale()=='en') {%>
         <a href='/fr'>Français</a>
         <% } %>
     </nav> 
     <section>
         <i class="fa fa-cubes fa-5x"></i>
-        <h1>Node.js - Express - mongoDB et EJS</h1> 
+        <h1><% __("titreSite") %></h1> 
     </section>
 </header>
