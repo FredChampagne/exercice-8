@@ -5,8 +5,8 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
+const cookieParser = require('cookie-parser');
 const i18n = require("i18n");
-const cookieParser = require('cookie-parser')
 const peupler = require("./mes_modules/peupler");
 
 // Configuration du multilingue
@@ -22,8 +22,8 @@ app.set('view engine', 'ejs'); // Générateur de template
 // Utilisation
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(i18n.init);
 app.use(cookieParser());
+app.use(i18n.init);
 let util = require("util");
 
 app.get('/:locale(fr|en)', (req, res) => {
